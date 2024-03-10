@@ -909,7 +909,7 @@ static void usb_bus_init (struct usb_bus *bus)
 	bus->bandwidth_isoc_reqs = 0;
 
 	INIT_LIST_HEAD (&bus->bus_list);
-#ifdef CONFIG_USB_OTG
+#ifdef CONFIG_USB_OTG_FR
 	INIT_DELAYED_WORK(&bus->hnp_polling, usb_hnp_polling_work);
 #endif
 }

@@ -1362,7 +1362,7 @@ static int usb_resume_both(struct usb_device *udev, pm_message_t msg)
 	return status;
 }
 
-#ifdef CONFIG_USB_OTG
+#ifdef CONFIG_USB_OTG_FR
 void usb_hnp_polling_work(struct work_struct *work)
 {
 	int ret;

@@ -1187,11 +1187,12 @@ static int ehci_hub_control (
 			if ((temp & PORT_PE) == 0
 					|| (temp & PORT_RESET) != 0)
 				goto error;
+
 			/* port gets suspended as part of bus suspend routine */
 			if (!ehci->susp_sof_bug)
 				ehci_writel(ehci, temp | PORT_SUSPEND,
 						status_reg);
-#ifdef	CONFIG_USB_OTG
+#ifdef	CONFIG_USB_OTG_FR
 			if (hcd->self.otg_port == (wIndex + 1) &&
 					hcd->self.b_hnp_enable) {
 				set_bit(wIndex, &ehci->suspended_ports);
